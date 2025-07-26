@@ -17,6 +17,7 @@ export interface ProductData {
     modality: string;
     media: Media[];
     checklist: Checklist[];
+    cta_text: CTATEXT;
     sections: Sections[];
     old_info: {
         cat_id: number;
@@ -39,7 +40,7 @@ export interface Media {
     name: string;
     resource_type: string;
     resource_value: string;
-    thumbnail_url?: string;
+    thumbnail_url: string;
 }
 
 export interface Checklist {
@@ -60,6 +61,7 @@ export interface Sections {
 }
 
 export interface CheckListValues {
+    cta: CTA;
     id: string;
     background_color: string;
     background_img: string;
@@ -68,4 +70,39 @@ export interface CheckListValues {
     start_at: string;
     template: string;
     text: string;
+    title: string;
+    icon: string;
+    description: string;
+    name: string;
+    image: string;
+    subtitle: string;
+    top_left_icon_img: string;
+    thumbnail: string;
+    background: Background;
+    checklist:[];
+    file_url: string;
 }
+
+export interface CTATEXT {
+    name: string;
+    value: string;
+}
+
+export interface CTA {
+    clicked_url: string;
+    color: string;
+    text: string;
+}
+
+export interface Background {
+    image: string;
+    primary_color: string;
+    secondary_color: string;
+
+}
+
+
+// export interface CourseDetails {
+//     id: string;
+    
+// }

@@ -1,15 +1,21 @@
+import { getUserLocale } from "@/services/locale";
 import Banner from "./components/banner";
 import { Product } from "@/app/types/products";
-// Server Component - runs on the server
+import Instructor from "./components/instructor";
+import CourseStructure from "./components/courseStructure";
+import JoinEngagement from "./components/joinEngagement";
+import ThingsYourLearn from "./components/thingsYouLearn";
+import FeatureExplanation from "./components/featureExplanation";
+import CourseDetails from "./components/courseDetails";
 const Page = async () => {
-  // Direct API call in Server Component (App Router)
+
+  const locale = await getUserLocale();
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://api.10minuteschool.com/discovery-service/api/v1/products/ielts-course",
+        `https://api.10minuteschool.com/discovery-service/api/v1/products/ielts-course?lang=${locale}` ,
         {
-          // Optional: Add cache control
-          cache: "no-store", // or 'force-cache' for caching
+          cache: "no-store",
         }
       );
 
@@ -32,7 +38,6 @@ const Page = async () => {
 
   const data = await fetchData();
 
-  console.log("Fetched data:", data);
 
   if (!data || !data.data) {
     return <div className="p-4">No data available</div>;
@@ -41,6 +46,17 @@ const Page = async () => {
   return (
     <>
       <Banner bannerData={data?.data} />
+
+      <main className="container flex flex-col gap-4 md:flex-row md:gap-12 " >
+        <section className="order-2 flex-1 md:order-1  md:max-w-[calc(100%_-_348px)] lg:max-w-[calc(100%_-_448px)]">
+          <Instructor instructorsData={data.data.sections} />
+          <CourseStructure featuresData={data.data.sections} />
+          <JoinEngagement joinEngagementData={data.data.sections} />
+          <ThingsYourLearn pointersData={data.data.sections} />
+          <FeatureExplanation featureExplanationsData = {data.data.sections}/>
+          <CourseDetails courseDetailsData = {data.data.sections}/>
+        </section>
+      </main>
     </>
   );
 };
