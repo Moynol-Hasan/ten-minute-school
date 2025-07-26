@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { ProductData } from "@/app/types/products";
 import Instructor from "@/app/components/instructor";
@@ -5,12 +6,32 @@ import CourseOverview from "./courseOverview";
 import BuyCourseMobile from "@/app//components/buyCourseMobile";
 import Trailer from "@/app//components/trailer";
 import { Phone, ChevronLeft, ChevronRight } from "lucide-react";
-
+import { useEffect, useState, useRef } from "react";
+import { Play } from 'lucide-react';
+import CheckList from "./checkList";
 interface BannerProps {
   bannerData: ProductData;
 }
 
 const Banner = ({ bannerData }: BannerProps) => {
+  const [showBuyButton, setShowBuyButton] = useState(false)
+   useEffect(() => {
+    const handleScroll = () => {
+      // Show the buy button when user scrolls down more than 200px
+      const scrollPosition = window.scrollY
+      setShowBuyButton(scrollPosition > 1000)
+    }
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll)
+
+    // Cleanup function to remove event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
+
   return (
     <div
       style={{
@@ -24,7 +45,6 @@ const Banner = ({ bannerData }: BannerProps) => {
     >
       <div className="container mx-auto relative flex flex-col gap-4 md:flex-row md:gap-12 pb-6 md:py-10 min-h-[300px]">
         <div className="order-1 flex flex-col justify-center flex-1 md:order-1  md:max-w-[calc(100%_-_348px)] lg:max-w-[calc(100%_-_448px)]">
-          
           <div className="block mt-4 md:mt-0 md:hidden">
             <div className="relative overflow-hidden bg-black youtube-video aspect-video">
               <div className="relative">
@@ -152,12 +172,9 @@ const Banner = ({ bannerData }: BannerProps) => {
               <div className="mb-4 text-sm font-normal"></div>
             </div>
           </div>
-
-
           <h1 className="text-white mb-2 text-[21px] font-semibold  md:text-4xl">
             {bannerData.title}
           </h1>
-
           <div className="mb-2">
             <button className="flex flex-row flex-wrap gap-2 text-white">
               <span className="inline-block">
@@ -174,7 +191,6 @@ const Banner = ({ bannerData }: BannerProps) => {
               </span>
             </button>
           </div>{" "}
-
           <div>
             <div
               className="text-gray-400"
@@ -219,7 +235,7 @@ const Banner = ({ bannerData }: BannerProps) => {
                           d="M37.492 26.268c1.334.77 1.334 2.694 0 3.464l-12.738 7.355c-1.334.77-3-.193-3-1.732v-14.71c0-1.539 1.666-2.501 3-1.732l12.738 7.355z"
                         ></path>
                       </svg>
-                    </span>{" "}
+                    </span>
                     <div className="thumb-wrap">
                       <div>
                         <div
@@ -262,7 +278,14 @@ const Banner = ({ bannerData }: BannerProps) => {
               </div>
 
               <CourseOverview bannerData={bannerData} />
+              {showBuyButton && (
+              <div className="fixed top-28 z-50 w-full max-w-[330px] lg:max-w-[400px] bg-white border shadow-lg rounded-lg">
+                <CourseOverview bannerData={bannerData} />
+              </div>
+            )}
             </div>
+
+            
 
             <p className="justify-between hidden mt-4 text-sm text-center text-gray-400 md:flex md:flex-col lg:flex lg:flex-row">
               <span>কোর্সটি সম্পর্কে বিস্তারিত জানতে</span>
@@ -272,40 +295,12 @@ const Banner = ({ bannerData }: BannerProps) => {
               </span>
             </p>
           </div>
-          
         </section>
       </div>
 
       <BuyCourseMobile />
 
-      <div className="block px-4 bg-white md:hidden">
-        <div className="grid py-2 md:p-4">
-          <p className="mb-4 text-xl font-semibold">এই কোর্সে যা থাকছে</p>
-
-          {bannerData.checklist.map((item, index) => (
-            <div key={index}>
-              <div className="flex items-center mb-3 leading-5">
-                {" "}
-                <div
-                  className="inline-block h-[20px] w-[20px] opacity-0 transition-opacity duration-300 ease-in-out"
-                  style={{ fontSize: 0, opacity: 1 }}
-                >
-                  <Image
-                    alt="icon"
-                    src={item.icon}
-                    width={20}
-                    height={20}
-                    style={{ color: "transparent" }}
-                  />
-                </div>
-                <h4 className="mb-0 inline-block pl-4 tracking-[0.005em] text-[#111827]">
-                  {item.text}
-                </h4>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <CheckList checkListData={bannerData.checklist} />
     </div>
   );
 };

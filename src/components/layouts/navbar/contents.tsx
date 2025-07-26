@@ -112,14 +112,11 @@ const NavContents = ({ locale }: NavbarProps) => {
           <span>16910</span>
         </Link>
 
-        <Link
-          className="flex items-center px-3 py-1 text-white rounded-md bg-green md:px-6"
-          href="/auth/login/?returnUrl=%2Fproduct%2Fielts-course%2F"
-        >
+        <button className="flex items-center px-3 py-1 text-white rounded-md bg-green md:px-6 cursor-pointer">
           <span className="whitespace-nowrap text-xs font-semibold md:text-base md:font-medium">
             লগ-ইন
           </span>
-        </Link>
+        </button>
       </div>
     </div>
   );
