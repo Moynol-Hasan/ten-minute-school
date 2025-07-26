@@ -1,0 +1,33 @@
+
+services:
+  web:
+    container_name: tms-web
+    build:
+      context: ../ 
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../:/app
+      - /app/node_modules
+    command: npm run dev
+
+
+  # web:
+  #   container_name: wlp-web
+  #   image: wlp-web
+  #   restart: unless-stopped
+  #   stdin_open: true
+  #   tty: true
+  #   build:
+  #     dockerfile: Dockerfile.local
+  #     context: ../../web/docker
+  #   ports:
+  #     - "${WEB_EXPOSED_PORT:-3002}:3000"
+  #   volumes:
+  #     - ../../web:/opt/app
+  #   environment:
+  #     VIRTUAL_HOST: ${WEB_VIRTUAL_HOST:-wlp.local}
+  #   command: bash -c "ls -la && pwd && chmod +x bin/run_on_local.sh && ./bin/run_on_local.sh"
+  #   networks:
+  #     - wlp-local-network

@@ -7,30 +7,39 @@ import BuyCourseMobile from "@/app//components/buyCourseMobile";
 import Trailer from "@/app//components/trailer";
 import { Phone, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
-import { Play } from 'lucide-react';
+import { Play } from "lucide-react";
 import CheckList from "./checkList";
 interface BannerProps {
   bannerData: ProductData;
 }
 
 const Banner = ({ bannerData }: BannerProps) => {
-  const [showBuyButton, setShowBuyButton] = useState(false)
-   useEffect(() => {
+  const [showBuyButton, setShowBuyButton] = useState(false);
+
+  useEffect(() => {
     const handleScroll = () => {
-      // Show the buy button when user scrolls down more than 200px
-      const scrollPosition = window.scrollY
-      setShowBuyButton(scrollPosition > 1000)
-    }
+      const scrollPosition = window.scrollY;
+      setShowBuyButton(scrollPosition > 1000);
+    };
 
-    // Add scroll event listener
-    window.addEventListener("scroll", handleScroll)
+    const initializeScrollState = () => {
+      setTimeout(() => {
+        const scrollPosition = window.scrollY;
+        setShowBuyButton(scrollPosition > 1000);
+      }, 100);
+    };
 
-    // Cleanup function to remove event listener
+    initializeScrollState();
+
+    window.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("load", initializeScrollState);
+
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
-
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("load", initializeScrollState);
+    };
+  }, []);
 
   return (
     <div
@@ -279,13 +288,11 @@ const Banner = ({ bannerData }: BannerProps) => {
 
               <CourseOverview bannerData={bannerData} />
               {showBuyButton && (
-              <div className="fixed top-28 z-50 w-full max-w-[330px] lg:max-w-[400px] bg-white border shadow-lg rounded-lg">
-                <CourseOverview bannerData={bannerData} />
-              </div>
-            )}
+                <div className="fixed top-28 z-50 w-full max-w-[330px] lg:max-w-[400px] bg-white border">
+                  <CourseOverview bannerData={bannerData} />
+                </div>
+              )}
             </div>
-
-            
 
             <p className="justify-between hidden mt-4 text-sm text-center text-gray-400 md:flex md:flex-col lg:flex lg:flex-row">
               <span>কোর্সটি সম্পর্কে বিস্তারিত জানতে</span>
