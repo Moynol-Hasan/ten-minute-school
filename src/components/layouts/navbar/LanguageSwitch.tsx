@@ -32,7 +32,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     <>
       <button
         onClick={handleToggle}
-        className="hidden cursor-pointer items-center gap-1 rounded border px-2 py-[2px] hover:bg-slate-50 md:flex rounded-md border-1"
+        className="hidden cursor-pointer items-center gap-1 rounded border px-2 py-[2px] hover:bg-slate-50 md:flex rounded-md border-1 font-poppins"
       >
         <svg
           className="hidden md:block"

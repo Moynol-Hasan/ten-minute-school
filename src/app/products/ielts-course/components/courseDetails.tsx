@@ -14,7 +14,7 @@ const ThingsYouNeed = ({ courseDetailsData }: CourseDetailsProps) => {
   ];
 
   return (
-    <div id="requirements">
+    <div id="requirements" className="font-poppins">
       <div className="mb-6 bg-[#E5E7EB] pb-2 md:mb-12 md:bg-white md:py-0">
         <div className="pb-6 bg-white md:pb-0">
           <div className="mb-0">

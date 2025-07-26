@@ -19,7 +19,7 @@ const Trailer = ({ media }: MediaProps) => {
     return (
       <div
         key={index}
-        className="relative w-[55px] h-[29px] rounded cursor-pointer border-0 flex-shrink-0 overflow-hidden"
+        className="relative w-[55px] h-[29px] rounded cursor-pointer border-0 flex-shrink-0 overflow-hidden font-poppins"
       >
         <Image
           alt={isVideo ? `Video preview: ${item.name}` : item.name}

@@ -18,7 +18,7 @@ const NavMenus = [
 
 const NavContents = ({ locale }: NavbarProps) => {
   return (
-    <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-3 md:px-7">
+    <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-3 md:px-7 font-poppins">
       <div className="flex gap-2">
         <button className="xl:hidden" type="button" name="menu-toggle">
           <svg

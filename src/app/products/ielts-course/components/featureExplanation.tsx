@@ -20,7 +20,7 @@ const FeatureExplanation = ({
   }
 
   return (
-    <div id="feature_explanations" className="flex flex-col gap-3 mb-10">
+    <div id="feature_explanations" className="flex flex-col gap-3 mb-10 font-poppins">
       <h2 className="text-xl font-semibold leading-[30px] text-black">
         {featureExplanations?.name}
       </h2>

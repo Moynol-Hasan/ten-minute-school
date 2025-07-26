@@ -16,7 +16,7 @@ const ThingsYouLearn = ({ pointersData }: PointersData) => {
   return (
     <div
       id="pointers"
-      className="mb-6 md:mb-10 relative bg-[#E5E7EB] py-2 md:bg-white md:py-0"
+      className="mb-6 md:mb-10 relative bg-[#E5E7EB] py-2 md:bg-white md:py-0 font-poppins"
     >
       <div className="pt-6 pb-6 bg-white md:pb-0 md:pt-0">
         <h2 className="mb-4 text-xl font-semibold md:text-2xl">

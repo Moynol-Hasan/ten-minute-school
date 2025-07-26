@@ -29,7 +29,7 @@ const JoinEngagement = ({ joinEngagementData }: JoinEngagementProps) => {
         backgroundImage: `url(${engagementData.background?.image || ""})`,
         backgroundSize: "cover",
       }}
-      className="flex gap-4 p-4 mb-8 overflow-hidden md:p-8 rounded-xl md:mb-12"
+      className="flex gap-4 p-4 mb-8 overflow-hidden md:p-8 rounded-xl md:mb-12 font-poppins"
     >
       {" "}
       <div className="w-full md:w-1/2">

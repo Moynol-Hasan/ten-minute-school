@@ -16,7 +16,7 @@ const CourseStructure = ({ featuresData }: FeaturesProps) => {
     }
 
     return (
-        <div id="features" className="flex flex-col gap-3">
+        <div id="features" className="flex flex-col gap-3 font-poppins">
             <h2 className="text-xl font-semibold leading-[30px] text-black">
                 {features?.name}
             </h2>

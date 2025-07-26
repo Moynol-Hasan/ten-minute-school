@@ -18,9 +18,9 @@ const Instructor = ({ instructorsData }: InstructorProps) => {
   }
 
   return (
-    <div id="instructors" className="poppins mb-7 xs:bg-[#EEF2F4] xs:pt-2">
+    <div id="instructors" className="poppins mb-7 xs:bg-[#EEF2F4] xs:pt-2 font-poppins">
       <div className="pt-4 pb-2 bg-white">
-        <h2 className="mb-4 text-xl font-semibold md:text-2xl poppins">
+        <h2 className="mb-4 text-xl font-semibold md:text-2xl font-poppins">
           {instructor?.name}
         </h2>
         <div className="flex items-center md:rounded-md md:border md:p-5">

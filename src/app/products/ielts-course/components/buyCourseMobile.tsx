@@ -1,6 +1,6 @@
 const BuyCourseMobile = () => {
     return (
-        <div className="block md:hidden">
+        <div className="block md:hidden font-poppins">
             <div className="w-full p-4 bg-white bottom-0 fixed z-50 left-0 right-0 drop-shadow-[0_-3px_15px_rgba(0,0,0,0.20)] animate-fadeIn">
                 <div className="flex items-center justify-between mb-2">
                     <div>

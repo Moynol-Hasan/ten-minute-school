@@ -20,7 +20,7 @@ const Banner = ({ bannerData }: BannerProps) => {
         backgroundPosition: "center",
       }}
       id="skills-landing"
-      className="min-h-[300px] md:min-h-[300px]"
+      className="min-h-[300px] md:min-h-[300px] font-poppins"
     >
       <div className="container mx-auto relative flex flex-col gap-4 md:flex-row md:gap-12 pb-6 md:py-10 min-h-[300px]">
         <div className="order-1 flex flex-col justify-center flex-1 md:order-1  md:max-w-[calc(100%_-_348px)] lg:max-w-[calc(100%_-_448px)]">

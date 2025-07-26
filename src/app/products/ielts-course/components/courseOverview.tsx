@@ -6,7 +6,7 @@ interface BannerProps {
 const CourseOverview = ({ bannerData }: BannerProps) => {
   return (
     <>
-      <div className="hidden md:block">
+      <div className="hidden md:block font-poppins">
         <div className="w-full p-4 md:h-auto" id="variant">
           <div className="flex flex-col w-full">
             <div className="flex items-center justify-between md:flex-col md:items-start">
@@ -31,7 +31,7 @@ const CourseOverview = ({ bannerData }: BannerProps) => {
         </div>
       </div>
 
-      <div className="hidden md:block">
+      <div className="hidden md:block font-poppins">
         <div className="grid py-2 md:p-4">
           <p className="mb-4 text-xl font-semibold">এই কোর্সে যা থাকছে</p>
 
