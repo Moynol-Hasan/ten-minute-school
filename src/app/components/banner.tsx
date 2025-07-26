@@ -288,7 +288,7 @@ const Banner = ({ bannerData }: BannerProps) => {
 
               <CourseOverview bannerData={bannerData} />
               {showBuyButton && (
-                <div className="fixed top-28 z-50 w-full max-w-[330px] lg:max-w-[400px] bg-white border">
+                <div className="fixed top-28 z-50 w-full max-w-[330px] lg:max-w-[400px] bg-white border hidden md:block">
                   <CourseOverview bannerData={bannerData} />
                 </div>
               )}
