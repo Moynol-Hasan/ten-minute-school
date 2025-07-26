@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { ProductData } from "@/app/types/products";
-import Instructor from "./instructor";
+import Instructor from "@/app/components/instructor";
 import CourseOverview from "./courseOverview";
-import BuyCourseMobile from "./buyCourseMobile";
-import Trailer from "./trailer";
+import BuyCourseMobile from "@/app//components/buyCourseMobile";
+import Trailer from "@/app//components/trailer";
 import { Phone, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface BannerProps {
