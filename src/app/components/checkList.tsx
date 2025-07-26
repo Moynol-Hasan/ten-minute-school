@@ -1,16 +1,23 @@
 import Image from "next/image";
+import EnrollCourse from "./enrollCourse";
+import { ProductData } from "../types/products";
 interface CheckListProps {
+  bannerData: ProductData;
   checkListData: {
     icon: string;
     text: string;
   }[];
 }
 
-const CheckList = ({ checkListData }: CheckListProps) => {
+const CheckList = ({ bannerData, checkListData }: CheckListProps) => {
   return (
     <>
-      <div className="block px-4 bg-white md:hidden">
-        <div className="grid py-2 md:p-4">
+      {/* <div className="block md:hidden font-poppins">
+        <EnrollCourse bannerData={bannerData} />
+      </div> */}
+
+      {/* <div className="block px-4 bg-white md:hidden font-poppins"> */}
+        <div className="grid py-2 px-4 md:p-4">
           <p className="mb-4 text-xl font-semibold">এই কোর্সে যা থাকছে</p>
 
           {checkListData.map((item, index) => (
@@ -35,7 +42,7 @@ const CheckList = ({ checkListData }: CheckListProps) => {
             </div>
           ))}
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };
