@@ -2,6 +2,7 @@
 services:
   web:
     container_name: tms-web
+    image: tms-web:latest
     build:
       context: ../ 
       dockerfile: Dockerfile

@@ -1,10 +1,10 @@
-FROM node:20
+FROM node:18-alpine
 
-ARG APP_TIMEZONE
+WORKDIR /app
 
-RUN apt-get update && apt-get install -y tzdata
+COPY package*.json ./
 
-WORKDIR /opt/app
+RUN npm install
 
 COPY . .
 
