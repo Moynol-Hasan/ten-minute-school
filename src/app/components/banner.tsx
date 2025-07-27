@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { ProductData } from "@/app/types/products";
-import BuyCourseMobile from "@/app//components/buyCourseMobile";
 import Trailer from "@/app//components/trailer";
 import { Phone, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
@@ -18,14 +17,14 @@ const Banner = ({ bannerData }: BannerProps) => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setEnrollCourse(scrollPosition > 800);
+      setEnrollCourse(scrollPosition > 690);
       setShowCheckList(scrollPosition > 1000);
     };
 
     const initializeScrollState = () => {
       setTimeout(() => {
         const scrollPosition = window.scrollY;
-        setEnrollCourse(scrollPosition > 800);
+        setEnrollCourse(scrollPosition > 690);
         setShowCheckList(scrollPosition > 1000);
       }, 100);
     };
@@ -42,7 +41,6 @@ const Banner = ({ bannerData }: BannerProps) => {
     };
   }, []);
 
-  console.log("showCheckList:", showCheckList); 
 
   return (
     <div>
@@ -340,11 +338,13 @@ const Banner = ({ bannerData }: BannerProps) => {
           </section>
         </div>
 
-        {/* <BuyCourseMobile /> */}
-        <div className={`${enrollCourse ? "hidden" : "block"} md:hidden font-poppins`}>
-        <BuyCourseMobile />
-      </div>
-      
+        <div
+          className={`${
+            enrollCourse ? "block" : "hidden"
+          } md:hidden bg-white font-poppins bottom-0 fixed z-50 left-0 right-0 drop-shadow-[0_-3px_15px_rgba(0,0,0,0.20)] animate-fadeIn`}
+        >
+          <EnrollCourse bannerData={bannerData} />
+        </div>
       </div>
 
       <div className="block md:hidden font-poppins">
