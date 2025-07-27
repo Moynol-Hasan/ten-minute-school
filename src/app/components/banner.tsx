@@ -13,16 +13,19 @@ interface BannerProps {
 
 const Banner = ({ bannerData }: BannerProps) => {
   const [showCheckList, setShowCheckList] = useState(false);
+  const [enrollCourse, setEnrollCourse] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
+      setEnrollCourse(scrollPosition > 800);
       setShowCheckList(scrollPosition > 1000);
     };
 
     const initializeScrollState = () => {
       setTimeout(() => {
         const scrollPosition = window.scrollY;
+        setEnrollCourse(scrollPosition > 800);
         setShowCheckList(scrollPosition > 1000);
       }, 100);
     };
@@ -38,6 +41,8 @@ const Banner = ({ bannerData }: BannerProps) => {
       window.removeEventListener("load", initializeScrollState);
     };
   }, []);
+
+  console.log("showCheckList:", showCheckList); 
 
   return (
     <div>
@@ -335,7 +340,11 @@ const Banner = ({ bannerData }: BannerProps) => {
           </section>
         </div>
 
+        {/* <BuyCourseMobile /> */}
+        <div className={`${enrollCourse ? "hidden" : "block"} md:hidden font-poppins`}>
         <BuyCourseMobile />
+      </div>
+      
       </div>
 
       <div className="block md:hidden font-poppins">
